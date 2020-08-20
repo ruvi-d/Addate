@@ -11,8 +11,17 @@ from tqdm import tqdm
 
 
 def get_file_date(path_to_file: str):
-    stat = os.stat(path_to_file)
-    secs = stat.st_mtime
+
+    if platform.system() == 'Windows':
+        secs = os.path.getctime(path_to_file)
+    else:
+        stat = os.stat(path_to_file)
+        try:
+            secs = stat.st_birthtime
+        except AttributeError:
+            # We're probably on Linux. No easy way to get creation dates here,
+            # so we'll settle for when its content was last modified.
+            secs = stat.st_mtime
     return time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(secs))
 
 def rename_file(path_to_file: str):
