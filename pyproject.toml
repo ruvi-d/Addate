@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "addate"
+version = "0.1.0"
+description = "Prepend file creation date to filename"
+authors = ["Ruvinda Dhambarage <thoughtless@ruvi.tech>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/ruvindad/Addate"
+repository = "https://github.com/ruvindad/Addate"
+keywords = ["Photo", "Organize"]
+
+[tool.black]
+line-length = 120
+target-version = ['py35', 'py36', 'py37']
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+skipsdist = True
+envlist = py35, py36, py37
+isolated_build = true
+[tox:.package]
+basepython = python3
+[testenv]
+whitelist_externals = poetry
+skip_install = true
+commands =
+    poetry install -v
+    poetry run pytest tests/
+"""
+
+[tool.poetry.dependencies]
+python = "^3.5"
+click = "^7.0"
+tqdm = "^4.36"
+
+[tool.poetry.dev-dependencies]
+black = { version = "^19.3b0", python = "^3.6" }
+jupyter = "^1.0"
+isort = "^4.3"
+
+[tool.poetry.scripts]
+addate = "addate.addate:main"
+fix = "scripts:fix"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
