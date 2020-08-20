@@ -1,12 +1,15 @@
 # Addate
 
-Have you ever noticed that you various capture devices (your phone, camera, GoPro, etc) have their own file naming schemes?  
+Have you noticed that your various capture devices (your phone, camera, GoPro, etc) have their own file naming scheme?  
+Usually this isn't a big deal; untill you try to move all you files in to one folder. This is when you realize that every piece of software (file manager, editors, image viewers, browsers, etc) defaults to alphabetically listing/consuming your files; making it difficult and sometimes impossible to view them in chronological order. Sometimes the gods are extra cruel and you can have conflicting filenames from multiple sources.
 
-Usually this isn't a big deal, but it quickly starts to suck when you realize that every piece of software (file manager to editor) defaults to alphabetically sorting. Sometimes the gods are extra cruel and you can have the same filenames from multiple sources.
+Addate (Add-Date) solves this annoyance by providing a multithreaded tool to prepend (append to front) the file creation date/time to your filenames. Using this lets your files be chronologically sorted by default!
 
-Addate solves this annoyance by providing a script to prepend (append to front) the file creation date to the filename so that your files, from all your devices are chronologically sorted; even when the view is alphabetically sorted. There is even multi-threaded support to speed things up.
+| Before| After| 
+|---------------|---------------|
+|![](before.png)|![](after.png)| 
 
-Many thanks to [difference-engine/thumbnail-generator-ubuntu](https://github.com/difference-engine/thumbnail-generator-ubuntu) from where I picked up many of the tricks. 
+Many thanks to [difference-engine/thumbnail-generator-ubuntu](https://github.com/difference-engine/thumbnail-generator-ubuntu) which I used as a reference. 
 
 ## Basic Usage
 ```
